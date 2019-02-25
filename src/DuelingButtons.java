@@ -17,8 +17,8 @@ public class DuelingButtons implements ActionListener {
 		new DuelingButtons().createUI();
 	}
 
-	JButton leftButton = new JButton();
-	JButton rightButton = new JButton();
+	JButton leftButton = new JButton("Clck Me!");
+	JButton rightButton = new JButton("Click Me!");
 	
 	Dimension BIG = new Dimension(400,400);
 	Dimension SMALL = new Dimension(200,200);
@@ -28,23 +28,23 @@ public class DuelingButtons implements ActionListener {
 
 	private void createUI() {
 		// 1. Add the panel to the frame
-
+         frame.add(panel);
 		// 2. Make the frame visible
-
+         frame.setVisible(true);
 		// 3. Set the text of the leftButton to "Click me!"
-
-		// 4. Set the text of the rightButton to "Click me!"
+        
+		 // 4. Set the text of the rightButton to "Click me!"
 
 		// 5. Add an action listener to the leftButton
-
-		// 6. Add an action listener to the rightButton
-
+    leftButton.addActionListener(this);
+		// 6. Add an action listener to the rightButton 
+    rightButton.addActionListener(this);
 		// 7. Add the leftButton to the panel
-
+     panel.add(leftButton);
 		// 8. Add the rightButton to the panel
-
+     panel.add(rightButton);
 		// 9. Pack the frame
-
+    frame.pack();
 		// 10. Set the title of the frame to "Demanding Buttons"
 
 	}
@@ -60,7 +60,16 @@ public class DuelingButtons implements ActionListener {
 			// Set the text of the leftButton to "Click Me!"
 			// Set the PREFERRED size of the leftButton to SMALL
 		
-		
+		if(buttonPressed.getPressedIcon()==leftButton) {
+			rightButton.setText("No click me");
+			rightButton.setPreferredSize(BIG);
+			leftButton.setPreferredSize(SMALL);
+		}
+		else {
+			leftButton.setText("No click me");
+			leftButton.setPreferredSize(BIG);
+			rightButton.setPreferredSize(SMALL);
+		}
 		/* If the buttonPressed was the rightButton, do the opposite. */
 		
 

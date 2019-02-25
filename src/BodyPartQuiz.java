@@ -31,12 +31,48 @@ public class BodyPartQuiz {
 	private void startQuiz() {
 
 		// 1. Make an int variable to hold the score.
-
+         int score= 0;
 		// 2. Set the size of the window in the initializeGui() method below
 			
 		// 4. Ask the user who this person is and store their answer
 		String guess= JOptionPane.showInputDialog("who is this?");
-
+		
+		if(guess.equalsIgnoreCase("Arnold")) {
+		    JOptionPane.showMessageDialog(null,"You guessed it correctly");
+		    score+=1;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "You were wrong. It was Arnold");
+		}
+		showNextImage();
+		String guess2= JOptionPane.showInputDialog("who is this?");
+		if(guess2.equalsIgnoreCase("Leonardo")) {
+		    JOptionPane.showMessageDialog(null,"You guessed it correctly");
+		    score+=1;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "You were wrong. It was Leonardo");
+		}
+		showNextImage();
+		String guess3= JOptionPane.showInputDialog("who is this?");
+		if(guess3.equalsIgnoreCase("Morgan")) {
+		    JOptionPane.showMessageDialog(null,"You guessed it correctly");
+		    score+=1;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "You were wrong. It was Morgan");
+		}
+		showNextImage();
+		String guess4= JOptionPane.showInputDialog("who is this?");
+		if(guess4.equalsIgnoreCase("Jack")) {
+		    JOptionPane.showMessageDialog(null,"You guessed it correctly");
+		    score+=1;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "You were wrong. It was Jack");
+		}
+		JOptionPane.showMessageDialog(null,"Your total score is "+score);
+ 
 		// 5. Check their answer. If they guessed correctly:
 		// -- Tell them they are right and increase the score by 1
 
@@ -44,7 +80,6 @@ public class BodyPartQuiz {
 		// -- Tell them they are wrong and who the person is
 
 		// 7. Use the showNextImage() method below to get the next image
-		showNextImage();
 	    	// 8. Show them their current score
 
 		// 9. .... repeat for all your images.....
@@ -66,6 +101,7 @@ public class BodyPartQuiz {
 
 	private void initializeGui() {
 		initializeImageList();
+		window.setSize(800,800);
 		imageIterator = imageList.iterator();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.add(panel);
