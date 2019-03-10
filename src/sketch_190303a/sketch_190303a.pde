@@ -4,11 +4,13 @@ int angle=100;
 import ddf.minim.*;  //at the very top of your sketch
 Minim minim;  //as a member variable
 AudioPlayer song;  //as a member variable
-minim = new Minim(this);  //in the setup method
-song = minim.loadFile("awesomeTrack.mp3", 512);//in the setup method
-song.play();
+
+
 
 void setup(){
+  minim = new Minim(this);  //in the setup method
+  song = minim.loadFile("awsome.wav",512);//in the setup method
+  
 size(600,600);
 pictureOfRecord= loadImage("71mvS9D5MQL._SX425_.jpg");
 pictureOfRecord.resize(400,400);
@@ -27,7 +29,11 @@ void draw(){
   angle+=1;
   if(mousePressed==true){
   rotateImage(pictureOfRecord,angle);
+  song.play();
  
+  }
+  else{
+   song.pause(); 
   }
    image(pictureOfRecord,100,100);
   
